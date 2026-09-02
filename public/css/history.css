@@ -1,0 +1,168 @@
+:root {
+    --primary-cyan: #00AEEF;
+    --text-dark: #1F2937;
+    --text-muted: #6B7280;
+    --bg-page: #F0F7FF;
+    --border-color: #E5E7EB;
+    
+    --green-bg: #E4F8DF;
+    --green-icon: #58C349;
+    --green-text: #3DA82E;
+    
+    --red-bg: #FCE8E8;
+    --red-icon: #EE5D5D;
+    --red-text: #E54848;
+
+    --font-serif: '"Source Serif 4"', Georgia, serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+.history-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: var(--font-sans);
+}
+
+/* Header */
+.history-header {
+    margin-bottom: 24px;
+}
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: #17324a;
+    margin: 0;
+}
+
+/* Card Utama */
+.history-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #F1F5F9;
+    padding: 32px;
+}
+
+/* Filter Tabs (Pill Style) */
+.filter-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 24px;
+}
+.filter-btn {
+    padding: 8px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+.filter-btn.active {
+    background-color: var(--primary-cyan);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 174, 239, 0.25);
+}
+.filter-btn.inactive {
+    background-color: #F1F5F9;
+    color: #64748B;
+}
+.filter-btn.inactive:hover {
+    background-color: #E2E8F0;
+    color: var(--text-dark);
+}
+
+/* Daftar Transaksi */
+.history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Baris Item Transaksi */
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #F1F5F9;
+}
+.history-item:last-child {
+    border-bottom: none;
+}
+
+/* Informasi (Kiri) */
+.trx-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Pewarnaan Pemasukan (Hijau) */
+.icon-in {
+    background-color: var(--green-bg);
+    color: var(--green-icon);
+}
+/* Pewarnaan Pengeluaran (Merah) */
+.icon-out {
+    background-color: var(--red-bg);
+    color: var(--red-icon);
+}
+
+/* Teks Detail */
+.trx-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.trx-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+.trx-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    text-transform: capitalize;
+}
+
+/* Nominal (Kanan) */
+.trx-amount {
+    font-size: 15px;
+    font-weight: 700;
+}
+.text-in {
+    color: var(--green-text);
+}
+.text-out {
+    color: var(--red-text);
+}
+
+/* State Kosong */
+.history-empty {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}

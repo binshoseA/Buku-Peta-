@@ -1,0 +1,598 @@
+:root {
+    --primary-cyan: #00aeef;
+    --primary-cyan-hover: #0096cc;
+    --card-blue-start: #60c5ff;
+    --card-blue-end: #0077e5;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --bg-input: #f0f7ff;
+    --bg-gray: #f3f4f6;
+
+    --green-light: #e5f6ff;
+    --green-text: #10b981;
+    --red-light: #ffe5e5;
+    --red-text: #ef4444;
+
+    --font-serif: '"Source Serif 4"', Georgia, serif;
+    --font-sans: "Inter", sans-serif;
+    --radius-xl: 24px;
+}
+
+.dashboard-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: var(--font-sans);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 4px 0;
+}
+.page-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+.btn-add-trx {
+    background-color: var(--primary-cyan);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 16px rgba(0, 174, 239, 0.25);
+    transition: all 0.2s;
+}
+.btn-add-trx:hover {
+    background-color: var(--primary-cyan-hover);
+    transform: translateY(-1px);
+}
+.icon-plus {
+    width: 18px;
+    height: 18px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+@media (min-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 1.3fr;
+    }
+}
+
+.card-keuntungan {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #9fddfa 0%,
+        #5fb8ea 35%,
+        #2f8fd0 65%,
+        #1c6ca8 100%
+    );
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+    color: white;
+    box-shadow:
+        0 12px 24px rgba(0, 119, 229, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Sapuan cahaya diagonal — imitasi kilau berlian saat kena cahaya */
+.card-keuntungan::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 45%;
+    height: 200%;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.55) 45%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0.55) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(12deg);
+    animation: diamondSweep 3.5s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-keuntungan {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #9fddfa 0%,
+        #5fb8ea 35%,
+        #2f8fd0 65%,
+        #1c6ca8 100%
+    );
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+    color: white;
+    box-shadow:
+        0 12px 24px rgba(0, 119, 229, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+@keyframes diamondSweep {
+    0% {
+        left: -60%;
+        opacity: 0;
+    }
+    8% {
+        opacity: 1;
+    }
+    45% {
+        opacity: 1;
+    }
+    55% {
+        left: 130%;
+        opacity: 0;
+    }
+    100% {
+        left: 130%;
+        opacity: 0;
+    }
+}
+
+@keyframes sparkleTwinkle {
+    0%,
+    44%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    58% {
+        opacity: 0.3;
+    }
+    65% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+}
+
+.keuntungan-label {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(18, 58, 92, 0.75);
+    margin: 0 0 6px 0;
+    letter-spacing: 0.2px;
+}
+
+.keuntungan-total {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-serif);
+    font-size: 52px;
+    font-weight: 800;
+    margin: 0 0 28px 0;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    color: #123a5c;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.keuntungan-stats {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    color: #123a5c;
+    padding-top: 18px;
+    border-top: none;
+    margin-top: auto;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.icon-stat {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+.icon-stat.up {
+    color: #16a34a;
+}
+.icon-stat.down {
+    color: #dc2626;
+}
+
+.card-grafik-gradient {
+    background: linear-gradient(180deg, #e0f7fa 0%, #e0f2fe 100%);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 174, 239, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.chart-title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-cyan);
+}
+.chart-icon {
+    width: 20px;
+    height: 20px;
+}
+.grafik-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+.chart-filters {
+    display: flex;
+    gap: 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 4px;
+    border-radius: 10px;
+}
+.filter-btn {
+    padding: 6px 10px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.filter-btn:hover {
+    color: var(--primary-cyan);
+}
+.filter-btn.active {
+    background: white;
+    color: var(--primary-cyan);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.chart-container-line {
+    flex: 1; /* Biarkan chart mengisi ruang yang kosong */
+    min-height: 200px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 16px;
+}
+.custom-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: auto;
+}
+.legend-item {
+    font-size: 13px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+    background-color: white;
+}
+
+.card-table {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.02),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+}
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.table-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+.table-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.link-lihat-semua {
+    color: var(--primary-cyan);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.link-lihat-semua:hover {
+    text-decoration: underline;
+}
+.btn-export {
+    background-color: var(--bg-input);
+    color: var(--primary-cyan);
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.trx-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.trx-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f8fafc;
+}
+.trx-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.trx-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.trx-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+.trx-icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+.is-pemasukan {
+    background-color: #e6f8f3;
+    color: var(--green-text);
+}
+.is-pengeluaran {
+    background-color: var(--red-light);
+    color: var(--red-text);
+}
+.trx-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 2px 0;
+}
+.trx-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0;
+}
+.trx-amount {
+    font-size: 14px;
+    font-weight: 700;
+}
+.text-green {
+    color: var(--green-text);
+}
+.text-red {
+    color: var(--red-text);
+}
+.trx-empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding: 24px 0;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+.modal-box {
+    background: white;
+    border-radius: var(--radius-xl);
+    width: 100%;
+    max-width: 400px;
+    padding: 32px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.btn-close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-input);
+    color: #9ca3af;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-close-modal:hover {
+    background: #e0f2fe;
+    color: var(--primary-cyan);
+}
+.modal-title {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 24px 0;
+}
+
+.toggle-group {
+    display: flex;
+    background-color: var(--bg-gray);
+    border-radius: 999px;
+    padding: 4px;
+    margin: 0 0 24px 0;
+    border: none;
+}
+.toggle-btn {
+    flex: 1;
+    border: none;
+    padding: 10px 0;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.inactive-toggle {
+    background: transparent;
+    color: var(--text-muted);
+}
+.active-pemasukan {
+    background: white;
+    color: var(--primary-cyan);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.active-pengeluaran {
+    background: white;
+    color: var(--red-text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-fields {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.input-group label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: 8px;
+}
+.input-group input {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: 2px solid transparent;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-dark);
+    outline: none;
+    transition: border 0.2s;
+}
+.input-group input:focus {
+    border-color: var(--primary-cyan);
+    background-color: white;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+.btn-cancel {
+    flex: 1;
+    background-color: var(--bg-input);
+    color: var(--primary-cyan);
+    border: none;
+    padding: 14px 0;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+.btn-save {
+    flex: 1;
+    background-color: var(--primary-cyan);
+    color: white;
+    border: none;
+    padding: 14px 0;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 174, 239, 0.25);
+}
